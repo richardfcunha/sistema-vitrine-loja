@@ -1,5 +1,6 @@
 import sqlite3
 import os
+from caminho import CAMINHO_DB
 
 def conectar():
     # Salva o banco de dados na pasta 'Documentos' do usuário para não apagar ao atualizar o .exe
@@ -9,7 +10,7 @@ def conectar():
     caminho_banco = os.path.join(pasta_documentos, "banco.db")
     
     conexao = sqlite3.connect(caminho_banco)
-    return conexao
+    return sqlite3.connect(CAMINHO_DB)
 
 def criar_tabela():
     conexao = conectar()

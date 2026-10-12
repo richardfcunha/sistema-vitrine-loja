@@ -5,6 +5,7 @@ from reportlab.lib import colors
 import os
 from datetime import datetime
 from logger import registrar_log
+from caminho import CAMINHO_RELATORIOS
 
 def gerar_pdf_alteracoes(itens_alterados):
     """
@@ -14,7 +15,7 @@ def gerar_pdf_alteracoes(itens_alterados):
         print("❌ Nenhum item para gerar no PDF.")
         return False
 
-    os.makedirs("relatorios", exist_ok=True)
+    os.makedirs(CAMINHO_RELATORIOS, exist_ok=True)
 
     # Captura a data e hora atual
     agora = datetime.now()

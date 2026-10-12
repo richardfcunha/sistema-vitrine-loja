@@ -67,7 +67,7 @@
  [],
  False,
  False,
- 1791834517,
+ 1791837180,
  [('run.exe',
    'D:\\PORTFOLIO_TI\\01_PYTHON\\projeto_wtadima\\venv\\Lib\\site-packages\\PyInstaller\\bootloader\\Windows-64bit-intel\\run.exe',
    'EXECUTABLE')],
