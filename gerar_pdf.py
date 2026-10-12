@@ -4,6 +4,7 @@ from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.lib import colors
 import os
 from datetime import datetime
+from logger import registrar_log
 
 def gerar_pdf_alteracoes(itens_alterados):
     """
@@ -88,4 +89,6 @@ def gerar_pdf_alteracoes(itens_alterados):
     doc.build(elementos)
     print(f"\n✅ PDF gerado com sucesso!")
     print(f"📂 Salvo em: {caminho_completo}")
+    registrar_log("Relatório PDF de preços gerado com sucesso.")
+    
     return True

@@ -1,6 +1,7 @@
 from database import criar_tabela, inserir_produto, listar_produtos, buscar_produto, excluir_produto, atualizar_descricao
 from processar_email import extrair_dados_email
 from gerar_pdf import gerar_pdf_alteracoes
+from logger import registrar_log
 
 def exibir_menu():
     print("\n" + "=" * 45)
@@ -29,6 +30,8 @@ def main():
             
             if codigo and descricao:
                 inserir_produto(codigo, descricao)
+                registrar_log(f"Produto cadastrado: Código {codigo} - {descricao}") # <--- AQUI
+                print("✅ Produto cadastrado com sucesso!") # (Opcional, mas bom para feedback visual)
             else:
                 print("❌ Erro: Código e descrição não podem estar vazios.")
 
@@ -54,6 +57,7 @@ def main():
                     
                     if nova_descricao:
                         atualizar_descricao(codigo, nova_descricao)
+                        registrar_log(f"Descrição atualizada - Código {codigo}: '{descricao_atual}' para '{nova_descricao}'") # <--- AQUI
                         print("✅ Descrição atualizada com sucesso!")
                     else:
                         print("❌ A nova descrição não pode estar vazia.")
@@ -129,6 +133,7 @@ def main():
                     confirmacao = input(f"Confirma a remoção de '{descricao}' (Código: {codigo}) da vitrine? (s/n): ").strip().lower()
                     if confirmacao == 's':
                         excluir_produto(codigo)
+                        registrar_log(f"Produto removido da vitrine - Código {codigo} ({descricao})") # <--- AQUI
                         print("✅ Produto removido com sucesso!")
                     else:
                         print("❌ Operação cancelada.")
