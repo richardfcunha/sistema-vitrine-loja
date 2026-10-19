@@ -89,13 +89,17 @@ def main():
 
             dados_email = extrair_dados_email(texto_email)
             itens_vitrine_alterados = []
+            produtos_vitrine = {}
+
+            for codigo, descricao in listar_produtos():
+                produtos_vitrine[codigo] = descricao
 
             for item in dados_email:
                 codigo = item["codigo"]
-                produto = buscar_produto(codigo)
+                
 
-                if produto:
-                    _, descricao = produto
+                if codigo in produtos_vitrine:
+                    
                     itens_vitrine_alterados.append({
                         "descricao": descricao,
                         "codigo": codigo,
